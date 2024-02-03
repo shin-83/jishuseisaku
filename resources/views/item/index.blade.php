@@ -30,6 +30,7 @@
                                 <th>種別</th>
                                 <th>詳細</th>
                                 <th>価格</th>
+                                <th>操作</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -41,6 +42,13 @@
                                     <td>{{ $item->type }}</td>
                                     <td>{{ $item->detail }}</td>
                                     <td>{{ $item->price }}</td>
+                                    <td>
+                                        <form action="{{ url('items/delete') }}" method="post" onsubmit="return comfirm('削除します。よろしいですか？');">
+                                            @csrf
+                                            <input type="hidden" name="id" value="{{ $items->id }}">
+                                            <input type="submit" value="削除" class="btn btn-danger">
+                                        </form>
+                                    </td>
                                 </tr>
                             @endforeach
                         </tbody>
