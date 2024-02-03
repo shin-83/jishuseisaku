@@ -44,9 +44,11 @@ class ItemController extends Controller
             // 商品登録
             Item::create([
                 'user_id' => Auth::user()->id,
+                'image_name' => $request->image_name,
                 'name' => $request->name,
                 'type' => $request->type,
                 'detail' => $request->detail,
+                'price' => $request->price,
             ]);
 
             return redirect('/items');
