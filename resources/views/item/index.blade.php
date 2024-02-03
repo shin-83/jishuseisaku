@@ -25,18 +25,22 @@
                         <thead>
                             <tr>
                                 <th>ID</th>
+                                <th>商品画像</th>
                                 <th>名前</th>
                                 <th>種別</th>
                                 <th>詳細</th>
+                                <th>価格</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach ($items as $item)
                                 <tr>
                                     <td>{{ $item->id }}</td>
+                                    <td>{{ $item->image_name }}</td>
                                     <td>{{ $item->name }}</td>
                                     <td>{{ $item->type }}</td>
                                     <td>{{ $item->detail }}</td>
+                                    <td>{{ $item->price }}</td>
                                 </tr>
                             @endforeach
                         </tbody>
