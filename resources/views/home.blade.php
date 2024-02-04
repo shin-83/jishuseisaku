@@ -1,17 +1,33 @@
 @extends('adminlte::page')
 
-@section('title', 'Dashboard')
+@section('title', 'ホーム画面')
 
 @section('content_header')
-    <h1>Dashboard</h1>
+    <b>ようこそ、お惣菜屋へ！</b>
 @stop
 
 @section('content')
-    <p>Welcome to this beautiful admin panel.</p>
+        <img src="{{ asset('img/home.jpeg') }}" alt="ロゴ">
 @stop
 
 @section('css')
     {{-- <link rel="stylesheet" href="/css/admin_custom.css"> --}}
+    <style>
+        .content-header {
+            font-size:40px;
+            padding: 150px 0 50px;
+            text-align:center;
+        }
+
+
+        .content {
+            text-align:center;
+        }
+
+        img {
+            border-radius:50%;
+        }
+    </style>
 @stop
 
 @section('js')
