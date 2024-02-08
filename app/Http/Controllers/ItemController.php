@@ -24,7 +24,18 @@ class ItemController extends Controller
     public function index()
     {
         // 商品一覧取得
-        $items = Item::all();
+        // $items = Item::all();
+
+        $query = Item::query();
+        $items = $query->get();
+
+        // 結果が空の場合は空の配列を渡す
+        if ($items->isEmpty()) {
+            $items = [];
+        }
+       // ページネーションを適用
+           $perPage = 8; // 1ページに表示するアイテム数を設定
+            $items = $query->paginate($perPage);
 
         return view('item.index', compact('items'));
     }
@@ -49,6 +60,7 @@ class ItemController extends Controller
                 'type' => $request->type,
                 'detail' => $request->detail,
                 'price' => $request->price,
+                
             ]);
 
             return redirect('/items');
@@ -64,5 +76,23 @@ class ItemController extends Controller
         $item->delete();
 
         return redirect('/items');
+    }
+
+    public function searchlist(Request $request)                       // 今後削除するかも？？？
+    {
+        $query = Item::query();
+        $items = $query->get();
+
+        // 結果が空の場合は空の配列を渡す
+        if ($items->isEmpty()) {
+            $items = [];
+        }
+       // ページネーションを適用
+           $perPage = 10; // 1ページに表示するアイテム数を設定
+            $items = $query->paginate($perPage);
+
+       // すべてのリクエストに対して同じビューを返す
+        return view('search.Search_list', compact('searchList'));
+
     }
 }
