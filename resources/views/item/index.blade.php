@@ -122,7 +122,7 @@
             <!-- ページネーションリンク -->
             <div class="row">
                 <div class="col-6">
-                    {{ $items->links('pagination::bootstrap-5') }}
+                    {{ $items->appends(request()->query())->links('pagination::bootstrap-5') }}
                 </div>
             </div>
         </div>
