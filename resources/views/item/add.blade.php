@@ -20,7 +20,7 @@
             @endif
 
             <div class="card card-primary">
-                <form method="POST">
+                <form action="/items/add" method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="card-body">
                         <div class="form-group">

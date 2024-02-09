@@ -58,7 +58,7 @@
                                     <td>{{ $item->detail }}</td>
                                     <td>{{ $item->price }}</td>
                                     <td>
-                                        <form action="{{ url('items/delete') }}" method="post" onsubmit="return comfirm('削除します。よろしいですか？');">
+                                        <form action="{{ url('items/delete') }}" method="post" onsubmit="return confirm('削除します。よろしいですか？');">
                                             @csrf
                                             <input type="hidden" name="id" value="{{ $item->id }}">
                                             <input type="submit" value="削除" class="btn btn-danger">
@@ -92,15 +92,23 @@
                         <div class="col-md-6">
                             <div class="card-body">
                                 <h5 class="card-title">{{ $item->name }}</h5>
+                                <p class="card-text">種別: {{ $item->type }}</p>
+                                <p class="card-text">詳細: {{ $item->detail }}</p>
                                 <p class="card-text">価格: {{ $item->price }}円</p>
-                                <!-- 商品詳細ボタン -->
-                                <button type="button" class="text-center search-category-btn">編集</button>
-                                <!-- 削除ボタン -->
-                                <form action="{{ url('items/delete') }}" method="post" onsubmit="return comfirm('削除します。よろしいですか？');">
-                                    @csrf
-                                    <input type="hidden" name="id" value="{{ $item->id }}">
-                                    <input type="submit" value="削除" class="btn btn-danger">
-                                </form>
+                                <div class="row justify-content-around align-items-center">
+                                    <div class="col-auto">
+                                        <!-- 商品詳細ボタン -->
+                                        <button type="button" class="text-center btn btn-warning">編集</button>
+                                    </div>
+                                    <div class="col-auto">
+                                        <!-- 削除ボタン -->
+                                        <form action="{{ url('items/delete') }}" method="post" onsubmit="return confirm('削除します。よろしいですか？');">
+                                            @csrf
+                                            <input type="hidden" name="id" value="{{ $item->id }}">
+                                            <input type="submit" value="削除" class="btn btn-danger">
+                                        </form>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

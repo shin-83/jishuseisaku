@@ -12,7 +12,6 @@ class Item extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'user_id',
         'image_name',
         'name',
         'type',
