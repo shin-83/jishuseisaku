@@ -6,16 +6,18 @@
     <div class="row">
         <div class="col-12 d-flex align-items-center justify-content-between">
             <b>商品一覧</b>
-            <div class="sort d-flex">
-                <select name="sort" class="form-control">
-                    <option value="">並び替え</option>
-                    <option value="price-asc">価格: 安い順</option>
-                    <option value="price-desc">価格: 安い順</option>
-                    <option value="created-asc">登録日: 古い順</option>
-                    <option value="created-asc">登録日: 新しい順</option>
-                </select>
-                <button type="submit" class="btn btn-secondary"><i class="fas fa-check"></i></button>
-            </div>
+            <form action="/items/" method="get">
+                <div class="sort d-flex">
+                    <select name="sort" class="form-control">
+                        <option value="">並び替え</option>
+                        <option value="price-asc">価格: 安い順</option>
+                        <option value="price-desc">価格: 高い順</option>
+                        <option value="created-asc">登録日: 古い順</option>
+                        <option value="created-desc">登録日: 新しい順</option>
+                    </select>
+                    <button type="submit" class="btn btn-secondary"><i class="fas fa-check"></i></button>
+                </div>
+            </form>
             <a href="{{ url('items/add') }}" class="btn btn-secondary">商品登録</a>
         </div>
     </div>

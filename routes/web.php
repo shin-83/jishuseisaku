@@ -36,7 +36,4 @@ Route::prefix('items')->group(function () {
     Route::post('/add', [App\Http\Controllers\ItemController::class, 'add']);
     // 商品削除
     Route::post('/delete', [App\Http\Controllers\ItemController::class, 'delete']);
-    
-    Route::get('/searchlist', [App\Http\Controllers\ItemController::class, 'searchlist']);
-
 });
