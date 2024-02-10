@@ -112,4 +112,54 @@ class ItemController extends Controller
 
         return redirect('/items');
     }
+
+    // 商品編集画面を表示
+    public function edit(Request $request)
+    {
+        // 一覧から指定されたIDと同じIDのレコードを取得
+        $items = Item::where('id', '=', $request->id)->first();
+        
+        return view('item.edit')->with([
+            'items' => $items,
+        ]);
+    }
+
+    // 商品更新
+    public function update(Request $request, Item $itemlists)
+    {
+        $item_id = $request['item_id'];
+
+        // $requestのvalidate（データの確認）を行い、$itemlistsへ
+        $itemupdate = $request->validate([
+            'name' => 'required|max:20',
+            'type' => 'required',
+            'detail' => 'required|max:30',
+            'price' => 'required|integer',
+        ]);
+
+        // hasFileメソッドでアップロードファイルの存在を確認
+        if ($request->hasFile('image_name')) {
+        
+            $image_name = $request->hasFile('image_name');
+
+            // ファイル名を取得（ファイル名.拡張子）
+            $fileName = $image_name->getClientOriginalName();
+
+            // ファイル名から拡張子のみを取り出す
+            $type_name = pathinfo($fileName, PATHINFO_EXTENSION);
+
+            // ファイル名をbase64形式でデータのimage_nameに入れる
+            $itemupdate['image_name'] = 'data:image/' . $type_name . ';base64,' . base64_encode(file_get_contents($image_name->path()));
+
+            // アップロードファイルの存在なし
+        } else {
+            $itemlists['image_name'] = config('noimage.no_image');
+        }
+
+        // 商品情報を更新
+        $itemlists->where('id', $item_id)->update($itemupdate);
+
+        // 商品一覧画面へ
+        return redirect('/items/');
+    }
 }

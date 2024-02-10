@@ -99,12 +99,12 @@
                                 <p class="card-text">価格: {{ $item->price }}円</p>
                                 <div class="row justify-content-around align-items-center">
                                     <div class="col-auto">
-                                        <!-- 商品詳細ボタン -->
-                                        <button type="button" class="text-center btn btn-warning">編集</button>
+                                        <!-- 商品編集ボタン -->
+                                        <a href="/items/edit/{{ $item->id }}" class="btn btn-warning">編集</a>
                                     </div>
                                     <div class="col-auto">
                                         <!-- 削除ボタン -->
-                                        <form action="{{ url('items/delete') }}" method="post" onsubmit="return confirm('削除します。よろしいですか？');">
+                                        <form action="/items/delete" method="post" onsubmit="return confirm('本当に削除しても、よろしいですか？');">
                                             @csrf
                                             <input type="hidden" name="id" value="{{ $item->id }}">
                                             <input type="submit" value="削除" class="btn btn-danger">

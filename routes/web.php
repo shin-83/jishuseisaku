@@ -36,4 +36,8 @@ Route::prefix('items')->group(function () {
     Route::post('/add', [App\Http\Controllers\ItemController::class, 'add']);
     // 商品削除
     Route::post('/delete', [App\Http\Controllers\ItemController::class, 'delete']);
+    // 商品編集画面を表示
+    Route::get('/edit/{id}', [App\Http\Controllers\ItemController::class, 'edit']);
+    // 商品更新
+    Route::post('/update', [App\Http\Controllers\ItemController::class, 'update']);
 });
