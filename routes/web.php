@@ -40,4 +40,6 @@ Route::prefix('items')->group(function () {
     Route::get('/edit/{id}', [App\Http\Controllers\ItemController::class, 'edit']);
     // 商品更新
     Route::post('/update', [App\Http\Controllers\ItemController::class, 'update']);
+    // （user）商品一覧
+    Route::get('/userindex', [App\Http\Controllers\ItemController::class, 'userindex']);
 });

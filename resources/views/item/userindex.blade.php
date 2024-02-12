@@ -91,26 +91,12 @@
                             </div>
                         </div>
                         <!-- 商品情報 -->
-                        <div class="col-md-6">
+                        <div class="col-md-6 d-flex align-items-center">
                             <div class="card-body">
-                                <h5 class="card-title">{{ $item->name }}</h5>
-                                <p class="card-text">種別: {{ $item->type }}</p>
-                                <p class="card-text">詳細: {{ $item->detail }}</p>
-                                <p class="card-text">価格(1人前): {{ $item->price }}円</p>
-                                <div class="row justify-content-around align-items-center">
-                                    <div class="col-auto">
-                                        <!-- 商品編集ボタン -->
-                                        <a href="/items/edit/{{ $item->id }}" class="btn btn-warning">編集</a>
-                                    </div>
-                                    <div class="col-auto">
-                                        <!-- 削除ボタン -->
-                                        <form action="/items/delete" method="post" onsubmit="return confirm('本当に削除しても、よろしいですか？');">
-                                            @csrf
-                                            <input type="hidden" name="id" value="{{ $item->id }}">
-                                            <input type="submit" value="削除" class="btn btn-danger">
-                                        </form>
-                                    </div>
-                                </div>
+                                    <h5 class="card-title">{{ $item->name }}</h5>
+                                    <p class="card-text">種別: {{ $item->type }}</p>
+                                    <p class="card-text">詳細: {{ $item->detail }}</p>
+                                    <p class="card-text">価格(1人前): {{ $item->price }}円</p>
                             </div>
                         </div>
                     </div>
@@ -130,7 +116,7 @@
 @stop
 
 @section('css')
-    <link rel="stylesheet" href="/css/item.css">
+    <link rel="stylesheet" href="/css/useritem.css">
 @stop
 
 @section('js')

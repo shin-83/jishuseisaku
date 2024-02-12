@@ -73,6 +73,15 @@ class ItemController extends Controller
                 'type' => 'required',
                 'detail' => 'required|max:30',
                 'price' => 'required|integer',
+            ],
+            [
+                'name.required' => '名前は必須です。',
+                'name.max' => '名前は20字以下です。',
+                'type.required' => '種別は必須です。',
+                'detail.required' => '詳細は必須です。',
+                'detail.max' => '詳細は30字以下です。',
+                'price.required' => '価格は必須です。',
+                'price.integer' => '価格は数字にしてください。',
             ]);
             
             // hasFileメソッドでアップロードファイルの存在を確認
@@ -135,6 +144,15 @@ class ItemController extends Controller
             'type' => 'required',
             'detail' => 'required|max:30',
             'price' => 'required|integer',
+        ],
+        [
+            'name.required' => '名前は必須です。',
+            'name.max' => '名前は20字以下です。',
+            'type.required' => '種別は必須です。',
+            'detail.required' => '詳細は必須です。',
+            'detail.max' => '詳細は30字以下です。',
+            'price.required' => '価格は必須です。',
+            'price.integer' => '価格は数字にしてください。',
         ]);
 
         // hasFileメソッドでアップロードファイルの存在を確認
@@ -162,4 +180,47 @@ class ItemController extends Controller
         // 商品一覧画面へ
         return redirect('/items/');
     }
+
+        /**
+     * (user)商品一覧
+     */
+    public function userindex(Request $request)
+    {
+        // 並び替えの基準となるパラネータを取得
+        $sortParam = $request->input('sort');
+
+        if (!empty($sortParam)) {
+            list($sortField, $sortOrder) = explode('-', $sortParam);
+            $order = in_array($sortOrder, ['asc', 'desc']) ? $sortOrder : 'asc';
+
+            // ここで正しいカラム名に修正
+            if  ($sortField == 'created') {
+                $sortField = 'created_at';
+            }
+        } else {
+            $sortField = null;
+            $order = 'asc';
+        }
+
+        // 商品一覧取得
+        $query = Item::query();
+
+        // 並び替えの条件に応じてクエリを変更
+        if ($sortField) {
+            $query->orderBy($sortField, $order);
+        }
+
+        $items = $query->get();
+
+        // 結果が空の場合は空の配列を渡す
+        if ($items->isEmpty()) {
+            $items = [];
+        }
+       // ページネーションを適用
+           $perPage = 4; // 1ページに表示するアイテム数を設定
+            $items = $query->paginate($perPage);
+
+        return view('item.userindex', compact('items'));
+    }
+
 }
