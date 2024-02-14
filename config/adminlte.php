@@ -305,6 +305,11 @@ return [
             'url' => '/items/add',
             'icon' => 'fas fa-upload',
         ],
+        [
+            'text' => 'ユーザー管理',
+            'url' => '/user',
+            'icon' => 'fas fa-address-book',
+        ],
 
         // AdminLTEデフォルト
         /*
