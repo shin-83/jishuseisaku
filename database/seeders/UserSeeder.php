@@ -19,6 +19,7 @@ class UserSeeder extends Seeder
             'name' => "管理者",
             'email' => "admin@techis.jp",
             'password' => Hash::make('admin'),
+            'role' => "1",
         ]);
     }
 }
