@@ -42,40 +42,6 @@
                                 <option value="その他" @if( old('type') === 'その他' ) selected @endif>その他</option>
                             </select>
                         </div>
-                        <!-- <div class="form-group" role="group">
-                            <label for="type">種別</label>
-                            <button type="button" class="form-control text-center" id="type" name="type" data-bs-toggle="dropdown" aria-expanded="false">{{ old('type') }}</button>
-                            <ul class="dropdown-menu" name="type">
-                                <li><a class="dropdown-item" href="#" data-value="肉">肉</a></li>
-                                <li><a class="dropdown-item" href="#" data-value="魚">魚</a></li>
-                                <li><a class="dropdown-item" href="#" data-value="野菜">野菜</a></li>
-                                <li><a class="dropdown-item" href="#" data-value="その他">その他</a></li>
-                            </ul>
-                        </div>
-
-                        <input type="hidden" name="type" id="type_name">
-
-                        <script>
-                            'use strict';
-                            document.addEventListener('DOMContentLoaded', function() {
-                                // ドロップダウンメニューのアイテムがクリックされた時のイベントリスナーを追加
-                                var dropdownItems = document.querySelectorAll('.dropdown-menu .dropdown-item');
-                                dropdownItems.forEach(function(item) {
-                                    item.addEventListener('click', function(event) {
-                                        // クリックされたアイテムのdata-value属性の値を取得
-                                        var selectedValue = event.target.getAttribute('data-value');
-                                        // 選択された値を表示する要素をセット
-                                        document.getElementById('type').innerText = selectedValue;
-                                        document.getElementById('type_name').value = selectedValue;
-
-                                        // ここで選択された値に基づく他のアクションを実行できる
-                                    });
-                                });
-                                // var selectedValue = document.getElementById('type_name').value;
-                                // document.getElementById('type').innerText = selectedValue;
-                            });
-                        </script> -->
-
 
                         <div class="form-group">
                             <label for="detail">詳細<span class="badge badge-danger ml-2">{{ __('必須') }}</span></label>

@@ -27,6 +27,7 @@ Auth::routes();
 // ホーム画面を表示
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+// ItemController関係
 Route::prefix('items')->group(function () {
     // 商品一覧
     Route::get('/', [App\Http\Controllers\ItemController::class, 'index']);
@@ -43,3 +44,12 @@ Route::prefix('items')->group(function () {
     // （user）商品一覧
     Route::get('/userindex', [App\Http\Controllers\ItemController::class, 'userindex']);
 });
+
+// ユーザー一覧画面
+Route::get('user', [App\Http\Controllers\UserController::class, 'user']);
+// ユーザー情報編集画面を表示
+Route::get('useredit/{id}', [App\Http\Controllers\UserController::class, 'useredit']);
+// ユーザー情報更新
+Route::post('userupdate', [App\Http\Controllers\UserController::class, 'userupdate']);
+// ユーザー情報削除
+Route::post('userdelete', [App\Http\Controllers\UserController::class, 'userdelete']);
