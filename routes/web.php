@@ -53,3 +53,4 @@ Route::get('useredit/{id}', [App\Http\Controllers\UserController::class, 'usered
 Route::post('userupdate', [App\Http\Controllers\UserController::class, 'userupdate']);
 // ユーザー情報削除
 Route::post('userdelete', [App\Http\Controllers\UserController::class, 'userdelete']);
+
