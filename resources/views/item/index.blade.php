@@ -82,7 +82,7 @@
         <div class="row">
             @foreach($items as $item)
             <div class="col-md-6">
-                <div class="card mb-3">
+                <div class="card mb-1">
                     <div class="row g-0">
                         <!-- 商品画像 -->
                         <div class="col-md-6">
@@ -91,7 +91,7 @@
                             </div>
                         </div>
                         <!-- 商品情報 -->
-                        <div class="col-md-6">
+                        <div class="col-md-6 d-flex align-items-center">
                             <div class="card-body">
                                 <h5 class="card-title">{{ $item->name }}</h5>
                                 <p class="card-text">種別: {{ $item->type }}</p>
