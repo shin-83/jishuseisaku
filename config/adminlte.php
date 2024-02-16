@@ -296,17 +296,20 @@ return [
             'icon' => 'fas fa-utensils'
         ],
         [
+            'key' => '(管理者用)商品一覧_admin_only',
             'text' => '(管理者用)商品一覧',
             'url'  => '/items/',
             'icon' => 'fas fa-list',
         ],
         [
-            'text' => '商品登録',
+            'key' => '(管理者用)商品登録_admin_only',
+            'text' => '(管理者用)商品登録',
             'url' => '/items/add',
             'icon' => 'fas fa-upload',
         ],
         [
-            'text' => 'ユーザー管理',
+            'key' => '(管理者用)ユーザー管理_admin_only',
+            'text' => '(管理者用)ユーザー管理',
             'url' => '/user',
             'icon' => 'fas fa-address-book',
         ],
