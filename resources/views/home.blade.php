@@ -7,7 +7,7 @@
 @stop
 
 @section('content')
-        <img src="{{ asset('img/home.jpeg') }}" alt="ロゴ">
+        <img src="{{ asset('img/home.jpeg') }}" alt="画像">
 @stop
 
 @section('css')
