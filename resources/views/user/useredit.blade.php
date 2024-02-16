@@ -7,8 +7,8 @@
 @stop
 
 @section('content')
-<div class="d-flex justify-content-center align-items-center"> <!-- 元々はclass="row" -->
-    <div class="col-md-6"> <!-- 元々はclass="col-md-10" -->
+<div class="d-flex justify-content-center align-items-center">
+    <div class="col-md-6">
         @if ($errors->any())
             <div class="alert alert-danger">
                 <ul>
@@ -36,7 +36,7 @@
                 </div>
 
                 <div class="card-footer text-center">
-                    <button type="submit" class="btn btn-primary">登録</button>
+                    <button type="submit" class="btn btn-primary">更新</button>
                 </div>
             </form>
         </div>
