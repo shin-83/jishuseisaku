@@ -84,7 +84,7 @@ class ItemController extends Controller
                 'price.integer' => '価格は数字にしてください。',
             ]);
             
-            // hasFileメソッドでアップロードファイルの存在を確認
+            // fileメソッドでアップロードファイルの存在を確認
             if($request->hasFile('image_name')) {
 
                 $image_name = $request->file('image_name');
@@ -155,10 +155,10 @@ class ItemController extends Controller
             'price.integer' => '価格は数字にしてください。',
         ]);
 
-        // hasFileメソッドでアップロードファイルの存在を確認
+        // fileメソッドでアップロードファイルの存在を確認
         if ($request->hasFile('image_name')) {
         
-            $image_name = $request->hasFile('image_name');
+            $image_name = $request->file('image_name');
 
             // ファイル名を取得（ファイル名.拡張子）
             $fileName = $image_name->getClientOriginalName();
