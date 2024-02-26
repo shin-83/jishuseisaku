@@ -21,11 +21,17 @@ MySQL 5.7.39
 Laravel 10.41.0
 
 ## 設計書
-[設計書ページへ](https://drive.google.com/drive/folders/1_dMk1I2PB6B9Yz79Ay3pBhgnz1Mstsnq)
+[設計書ページへ](https://drive.google.com/drive/folders/1s6eS3vXrAvpZvlGnyxAEuqATUMuSuZ5G)
 
 ## システム閲覧
 [アプリケーションページへ](https://jishuseisaku-33edf0a8a315.herokuapp.com/login)
 
 ### テストアカウント情報
+名前：管理者  
+メールアドレス：admin@techis.jp  
+パスワード：admin
+
+
+名前：太郎  
 メールアドレス：taro@gmail.com  
 パスワード：taro1234
