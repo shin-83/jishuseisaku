@@ -1,43 +1,31 @@
-## 商品管理システム
+# お惣菜屋の商品管理システム
 
-### 環境構築手順
+## 概要
+このシステムでは、店舗で取り扱う商品管理ができます。
 
-* Gitクローン
-* .env.example をコピーして .env を作成
-* MySQLのデータベース作成（名前：item_management）
-* Macの場合 .env の DB_PASSWORD を root に修正（Windowsは修正不要）
+商品情報を閲覧できます。
+また、商品の新規登録、編集、削除を行うことができます。（管理者のみ）
 
-    ```INI
-    DB_PASSWORD=root
-    ```
+## 主な機能
+- ログイン・ログアウト機能
+- 商品一覧画面
+- 商品の並び替え機能
+- (管理者用)商品一覧画面
+- (管理者用)商品登録・編集・削除機能
+- (管理者用)ユーザー管理・編集・削除機能
 
-* APP_KEY生成
+## 開発環境
 
-    ```console
-    php artisan key:generate
-    ```
+PHP 8.3.0  
+MySQL 5.7.39  
+Laravel 10.41.0
 
-* Composerインストール
+## 設計書
+[設計書ページへ](https://drive.google.com/drive/folders/1_dMk1I2PB6B9Yz79Ay3pBhgnz1Mstsnq)
 
-    ```console
-    composer install
-    ```
+## システム閲覧
+[アプリケーションページへ](https://jishuseisaku-33edf0a8a315.herokuapp.com/login)
 
-* フロント環境構築
-
-    ```console
-    npm ci
-    npm run build
-    ```
-
-* マイグレーション
-
-    ```console
-    php artisan migrate
-    ```
-
-* 起動
-
-    ```console
-    php artisan serve
-    ```
+### テストアカウント情報
+メールアドレス：taro@gmail.com  
+パスワード：taro1234
